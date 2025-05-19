@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Site Responsivo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Estilização da barra de rolagem para Webkit (Chrome, Safari, Edge) */
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.3); }
+    ::-webkit-scrollbar-thumb { background-color: #ffcc00; border-radius: 5px; }
+    ::-webkit-scrollbar-thumb:hover { background-color: #ffd633; }
+    /* Estilização para Firefox */
+    html { scrollbar-width: thin; scrollbar-color: #ffcc00 rgba(0, 0, 0, 0.3); }
+
+    #particles-js { position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -1; background-color: transparent; pointer-events: none; }
+
+    /* .pacote-item */
+    .pacote-item { scrollbar-width: thin; scrollbar-color: #ffcc00 #00000050; }
+    .pacote-item::-webkit-scrollbar { width: 6px; }
+    .pacote-item::-webkit-scrollbar-track { background: #00000050; }
+    .pacote-item::-webkit-scrollbar-thumb { background-color: #ffcc00; border-radius: 3px; }
+    .pacote-item li i { margin-right: 10px; width: 20px; display: inline-block; text-align: center; }
+
+    *{margin:0;padding:0;box-sizing:border-box}html,body{width:100%;height:100%;font-family:Arial,sans-serif;overflow:hidden}
+    body { animation: changeBackground 20s infinite; background-size: cover; }
+    @keyframes changeBackground {
+      0% { background-color: #ff0000; }
+      10% { background-color: #ff6600; }
+      20% { background-color: #ffcc00; }
+      30% { background-color: #99ff99; }
+      40% { background-color: #009900; }
+      50% { background-color: #03b7f1; }
+      60% { background-color: #0018ff; }
+      70% { background-color: #ff81b4; }
+      80% { background-color: #cc99ff; }
+      90% { background-color: #be34ff; }
+      100% { background-color: #ff2458; } }
+    header{width:100%;background-color:rgba(0, 0, 0, 0);position:fixed;top:0;left:0;z-index:10;padding:10px 0;box-shadow:0 2px 5px rgba(0, 0, 0, 0)}
+     nav{display:flex;justify-content:center;gap:30px}
+     nav a{font-family:'Lilita One',cursive;font-size:1.2rem;text-decoration:none;color:#fff;transition:transform 0.2s ease;cursor:pointer}
+     nav a:hover{transform:scale(1.1);color:#ffcc00}
+    .container{width:100%;height:100%;position:relative;padding-top:70px}
+    .container img{position:absolute;display:block;max-width:100%;height:auto;transition:all 0.3s ease-in-out}
+
+    @keyframes flutuar{0%,100%{transform:translateY(0) rotate(var(--rot))}50%{transform:translateY(-20px) rotate(var(--rot))}}
+    .item{animation:flutuar ease-in-out infinite}
+    .lua{--rot:-20deg;animation-duration:5s;width:17%;top:19%;left:22%}
+    .arcoiris{--rot:-30deg;animation-duration:6.5s;width:20%;top:5%;left:1%}
+    .estrela{--rot:25deg;animation-duration:5.5s;width:13%;top:50%;left:31%}
+    .sol{--rot:20deg;animation-duration:6s;width:30%;top:40%;right:70%}
+    .nuvem{--rot:20deg;animation-duration:4.5s;width:20%;bottom:52%;left:40%}
+    .titio{--rot:0deg;animation-duration:6s;width:25%;bottom:35%;left:45%}
+    .palhaco{--rot:0deg;animation-duration:5s;width:15%;bottom:30%;left:50%}
+    .slogo1{--rot:0deg;animation-duration:4.5s;width:20%;bottom:25%;left:45%}
+    .palhaco1{--rot:0deg;animation-duration:6.5s;width:37%;top:10%;right:0}
+    .palhacoguitarra{--rot:0deg;animation-duration:6.5s;width:40%;top:10%;right:-8%}
+    .palhaco1, .palhacoguitarra { transition: opacity 1s ease-in-out; position: absolute; }
+    .palhaco1.hidden, .palhacoguitarra.hidden { opacity: 0; pointer-events: none; }
+
+    /* Flutuar com suporte ao scale */
+    @keyframes flutuar { 0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)) scale(var(--scale, 1)); }
+      50% { transform: translateY(-20px) rotate(var(--rot, 0deg)) scale(var(--scale, 1)); } }
+
+    /* Redes Sociais */
+    .social-icons { position: fixed; bottom: 1px; right: 600px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; z-index: 5; }
+    .social-icon { width: 40px; height: 38px; transition: all 0.3s ease; animation: flutuar 8s ease-in-out infinite; --rot: 0deg; --scale: 1; }
+    .social-icon:hover { --scale: 1.2; }
+
+    /* WhatsApp */
+    .whatsapp-icon { position: fixed; bottom: 1px; right: 10px; width: 100px; height: 100px; z-index: 10; transition: all 0.3s ease; 
+      animation: flutuar 5.5s ease-in-out infinite; --rot: 0deg; --scale: 1; }
+    .whatsapp-icon:hover { --scale: 1.3; }
+
+    /* Sobre */
+    .sobre-container{position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,0);display:none;justify-content:center;align-items:center;z-index:999;backdrop-filter:blur(8px)}
+    .sobre-carrossel{position:relative;width:80%;max-width:800px;height:70%;overflow:hidden}
+    .sobre-inner{display:flex;width:100%;height:100%}
+    .sobre-item{min-width:100%;height:100%;display:flex;flex-direction:column;background:#000000d7;border-radius:10px;color:#ffcc00;padding:30px;overflow-y:auto;box-sizing:border-box;justify-content:center}
+    .sobre-item h2{font-family:'Lilita One',cursive;font-size:1.8rem;margin-bottom:15px;text-align:center}
+    .sobre-item p{font-size:1.2rem;margin-bottom:15px;text-align:center}
+    
+    /* Fotos */
+    .carrossel-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0); display: none; justify-content: center; align-items: center; z-index: 20; backdrop-filter: blur(8px); }
+    .carrossel { position: relative; width: 95%; max-width: none; height: 90vh; overflow: hidden; }
+    .carrossel-inner { display: flex; width: 100%; height: 90%; transition: transform 0.5s ease; }
+    .carrossel-item { min-width: 95%; height: 100%; display: flex; justify-content: center; align-items: center; background: #00000000; border-radius: 10px; color: #efd151; padding: 10px; box-sizing: border-box; margin: 0 2.5%; overflow-y: auto; }
+    .carrossel-item img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;}
+    .carrossel-indicators { position: absolute; bottom: 10px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; padding: 10px 0; }
+    .carrossel-indicator { width: 12px; height: 12px; border-radius: 50%; background-color: rgba(0, 0, 0, 0.3); cursor: pointer; transition: background 0.3s; }
+    .carrossel-indicator.active { background-color: #ffcc00; }
+    .close-carrossel { position: absolute; top: 20px; right: 20px; color: #ffcc00; font-size: 30px; cursor: pointer; background: none; border: none; text-shadow: 0 0 5px #000; }
+
+    /* Vídeos */
+    .videos-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0); display: none; justify-content: center; align-items: center; z-index: 20; backdrop-filter: blur(8px); }
+    .videos-carrossel { position: relative; width: 80%; max-width: 800px; height: 70%; overflow: hidden; }
+    .videos-inner { display: flex; width: 100%; height: 90%; transition: transform 0.5s ease; }
+    .video-item { min-width: 90%; height: 100%; display: flex; justify-content: center; align-items: center; background: #000000d7; border-radius: 10px; box-sizing: border-box; margin: 0 5%; overflow: hidden; }
+    .video-item iframe { width: 95%; height: 85%; border: none; border-radius: 10px; }
+    .videos-indicators { position: absolute; bottom: 10px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; padding: 10px 0; }
+    .video-indicator { width: 12px; height: 12px; border-radius: 50%; background-color: rgba(0, 0, 0, 0.3); cursor: pointer; transition: background 0.3s; }
+    .video-indicator.active { background-color: #ffcc00; }
+        
+    /* Nossos Pacotes */
+    .pacotes-container{position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,0);display:none;justify-content:center;align-items:center;z-index:20;backdrop-filter:blur(8px)}
+    .pacotes-carrossel{position:relative;width:80%;max-width:800px;height:70%;overflow:hidden}
+    .pacotes-inner{display:flex;width:100%;height:90%;transition:transform 0.5s ease}
+    .pacote-item { min-width: 90%; height: 100%; display: flex; flex-direction: column; background: #000000d7; border-radius: 10px; color: #ffcc00; padding: 20px; overflow-y: auto; box-sizing: border-box; margin: 0 5%; }
+    .pacote-item h2{font-family:'Lilita One',cursive;font-size:1.8rem;margin-bottom:15px;text-align:center}
+    .pacote-item p{font-size:1.2rem;margin-bottom:15px;text-align:center}
+    .pacote-premium-text{font-size:0.9em!important;margin:10px 0!important;text-align:center!important}
+    .pacote-item ul{list-style-type:none;padding:0;margin:0 auto;width:fit-content}
+    .pacote-item li{margin-bottom:10px;font-size:1rem;text-align:left;position:relative;padding-left:25px}
+    .two-columns{display:flex;justify-content:center;gap:30px;margin:0 auto;width:fit-content}
+    .two-columns ul{width:250px;text-align:center}
+    .pacotes-indicators{position:absolute;bottom:10px;left:0;right:0;display:flex;justify-content:center;gap:10px;padding:10px 0}
+    .pacote-indicator{width:12px;height:12px;border-radius:50%;background-color:rgba(0,0,0,0.3);cursor:pointer;transition:background 0.3s}
+    .pacote-indicator.active{background-color:#ffcc00}
+    .ajuste-topo { margin-top: 40px; background: transparent !important; }
+
+    /* celulares e tablets */
+     @media (min-width: 320px) and (max-width: 900px) {
+    .lua { width: 27%; top: 33%; left: 38%; position: absolute; }
+    .arcoiris { width: 25%; top: 30%; left: 3%; position: absolute; }
+    .estrela { width: 23%; top: 47%; left: 60%; position: absolute; }
+    .sol { width: 45%; top: 42%; right: 53%; position: absolute; }
+    .nuvem { width: 30%; bottom: 50%; left: 68%; position: absolute; }
+    .titio { width: 70%; bottom: 78%; left: 15%; position: absolute; }
+    .palhaco { width: 40%; bottom: 73%; left: 30%; position: absolute; }
+    .palhaco1 { width: 60%; top: 60%; right: 18%; position: absolute; }
+    .palhacoguitarra { width: 90%; top: 60%; left: 13%; position: absolute; }
+    .slogo1 { width: 60%; top: 25%; left: 20%; position: absolute; }
+    .carrossel, .videos-carrossel, .pacotes-carrossel { width: 98%; height: 50vh; } nav { gap: 10px; } nav a { font-size: 1rem; }
+    .pacote-item h2 { font-size: 1rem; }
+    .pacote-item p { font-size: 0.9rem; }
+    .pacote-item li { font-size: 0.9rem; }
+    .social-icons { position: fixed; bottom: 5px; left: 10px; display: flex; flex-direction: column; gap: 8px; z-index: 100; }
+    .social-icon { width: 25px; height: 25px; cursor: pointer; }
+    .whatsapp-icon { position: fixed; bottom: 3px; right: 5px; width: 70px; height: 69px; z-index: 101; } }
+  </style>
+</head>
+<body>
+      <div id="particles-js"></div>  
+      <div class="count-particles">
+      <span class="js-count-particles"></span>
+      </div>
+      <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+      <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
+  <header>
+    <nav>
+      <a id="sobre-btn">Sobre</a>
+      <a id="fotos-btn">Fotos</a>
+      <a id="videos-btn">Vídeos</a>
+      <a id="servicos-btn">Nossos Pacotes</a>
+    </nav>
+  </header>
+  <div class="container">
+    <img src="image/lua.png" alt="Lua" class="item lua">
+    <img src="image/arcoiris.png" alt="Arco-íris" class="item arcoiris">
+    <img src="image/estrela.png" alt="Estrela" class="item estrela">
+    <img src="image/sol.png" alt="Sol" class="item sol">
+    <img src="image/nuvem.png" alt="Nuvem" class="item nuvem">
+    <img src="image/titio.png" alt="Titio" class="item titio">
+    <img src="image/palhaco.png" alt="Palhaço" class="item palhaco">
+    <img src="image/slogo1.png" alt="Slogo" class="item slogo1">
+    <img src="image/palhaco1.png" alt="Palhaço Rosto" class="item palhaco1">
+    <img src="image/palhacoguitarra.png" alt="Palhaço guitarra" class="item palhacoguitarra">
+  </div>
+
+<!-- Redes Sociais (lado esquerdo, vertical) -->
+<div class="social-icons">
+  <a href="https://www.youtube.com/@titiopalhaco" target="_blank"><img src="image/youtube.png" alt="YouTube" class="social-icon"></a>
+  <a href="https://www.facebook.com/allexx.rodrigo?locale=pt_BR" target="_blank"><img src="image/face.png" alt="Facebook" class="social-icon"></a>
+  <a href="https://www.tiktok.com/@titiopalhaco" target="_blank"><img src="image/tiktok.png" alt="TikTok" class="social-icon"></a>
+  <a href="https://open.spotify.com/intl-pt/artist/0xB98IgXtjHyJWxm5rzZtt" target="_blank"><img src="image/spotify.png" alt="Spotify" class="social-icon"></a>
+  <a href="https://www.deezer.com/br/artist/140591012" target="_blank"><img src="image/deezer.png" alt="Deezer" class="social-icon"></a>
+  <a href="https://www.instagram.com/titiopalhaco/" target="_blank"><img src="image/insta.png" alt="Instagram" class="social-icon"></a>
+  <a href=" https://kwai-video.com/u/@titiopalhaco/qI41Cs9O" target="_blank"><img src="image/kwai.png" alt="Kwai" class="social-icon"></a>
+</div>
+
+<!-- WhatsApp fixo canto inferior direito -->
+<a href="https://api.whatsapp.com/message/NHAE3H3RTP3CP1?autoload=1&app_absent=0" target="_blank">
+  <img src="image/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
+</a>
+
+    <!-- Sobre -->
+    <div class="sobre-container">
+    <button class="close-carrossel">&times;</button>
+    <div class="sobre-carrossel">
+      <div class="sobre-inner">
+        <div class="sobre-item">
+          <h2>Olá, eu sou o Titio Palhaço!</h2>
+          <p>Com meu nariz vermelho e sorriso contagiante, eu transformo qualquer evento em uma festa inesquecível.</p>
+          <p>Com mais de duas décadas de experiência em entretenimento infantil, meu objetivo é fazer com que cada criança se sinta especial e tenha momentos de pura diversão.</p>
+          <p>Minhas apresentações incluem um show ao vivo cantando e tocando guitarra, balões, brincadeiras interativas, pintura facial e muito mais - tudo adaptado para a idade e preferências dos seus pequenos.</p>
+          <p>Além de palhaço profissional, sou educador e entendo a importância de um entretenimento que seja não só divertido, mas também seguro e educativo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fotos -->
+  <div class="carrossel-container" id="carrossel">
+    <button class="close-carrossel">&times;</button>
+    <div class="carrossel">
+      <div class="carrossel-inner" id="carrossel-inner">
+        <div class="carrossel-item"><img src="image/sbt.png" alt="Foto 1"></div>
+        <div class="carrossel-item"><img src="image/recreadora.png" alt="Foto 2"></div>
+        <div class="carrossel-item"><img src="image/certificado.png" alt="Foto 3"></div>
+        <div class="carrossel-item"><img src="image/niver1.png" alt="Foto 4"></div>
+        <div class="carrossel-item"><img src="image/niver2.png" alt="Foto 5"></div>
+      </div>
+      <div class="carrossel-indicators" id="indicators">
+        <div class="carrossel-indicator active"></div>
+        <div class="carrossel-indicator"></div>
+        <div class="carrossel-indicator"></div>
+        <div class="carrossel-indicator"></div>
+        <div class="carrossel-indicator"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vídeos -->
+  <div class="videos-container" id="videos-carrossel">
+    <button class="close-carrossel" id="close-videos">&times;</button>
+    <div class="videos-carrossel">
+      <div class="videos-inner" id="videos-inner">
+        <div class="video-item">
+          <iframe 
+            src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fbyallexxrodriggo%2Fvideos%2F583095080336284&show_text=0&autoplay=0" 
+            allowfullscreen 
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+          </iframe>
+        </div>
+        <div class="video-item"><iframe src="https://www.youtube.com/embed/1nybF12muy0" allowfullscreen></iframe></div>
+        <div class="video-item"><iframe src="https://www.youtube.com/embed/-79x5pG39zU" allowfullscreen></iframe></div>
+        <div class="video-item"><iframe src="https://www.youtube.com/embed/RolkMrzntYU" allowfullscreen></iframe></div>
+        <div class="video-item"><iframe src="https://www.youtube.com/embed/id_qeQxVasI" allowfullscreen></iframe></div>
+      </div>
+      <div class="videos-indicators" id="videos-indicators">
+        <div class="video-indicator active"></div>
+        <div class="video-indicator"></div>
+        <div class="video-indicator"></div>
+        <div class="video-indicator"></div>
+        <div class="video-indicator"></div>
+      </div>
+    </div>
+  </div>
+
+<!-- Nossos Pacotes -->
+<div class="pacotes-container" id="pacotes-carrossel">
+  <button class="close-carrossel" id="close-pacotes">&times;</button>
+  <div class="pacotes-carrossel">
+    <div class="pacotes-inner" id="pacotes-inner">
+      <!-- Basic -->
+      <div class="pacote-item">
+        <div class="pacote-item ajuste-topo">
+         <h2>🔥 Basic 🔥</h2>
+        <p>R$ 600,00 - 1 hora</p>
+        <br>
+        <ul>
+          <li><i class="fas fa-volume-up" style="color: #4dabf7;"></i> 1 Caixa com playback's</li>
+          <li><i class="fas fa-microphone" style="color: #74b816;"></i> 1 Microfone</li>
+          <li><i class="fas fa-laugh-squint" style="color: #e64980;"></i> 1 Palhaço fantasiado</li>
+          <li><i class="fas fa-paint-brush" style="color: #fcc419;"></i> 1 Recreadora com pintura facial</li>
+          <li><i class="fas fa-birthday-cake" style="color: #cc5de8;"></i> Balões e lança confetes</li>
+        </ul>
+      </div>
+      </div>
+
+      <!-- Premium -->
+      <div class="pacote-item">
+        <h2><i class="fas fa-star" style="color: #ffd43b;"></i> Premium <i class="fas fa-star" style="color: #ffd43b;"></i></h2>
+        <p>R$ 1.000,00 - 2 horas</p>
+        <p class="pacote-premium-text">*Sendo 1 hora de música ao vivo e as restantes com músicas mecânicas e clipes infantis.</p>
+        <br>
+        <div class="two-columns">
+          <ul>
+            <li><i class="fas fa-guitar" style="color: #e67700;"></i> 1 Guitarra com pedaleira</li>
+            <li><i class="fas fa-laptop" style="color: #339af0;"></i> 1 Notebook</li>
+            <li><i class="fas fa-sliders-h" style="color: #5c7cfa;"></i> 1 Controladora D'j</li>
+            <li><i class="fas fa-microphone-alt" style="color: #51cf66;"></i> 2 Microfones sem fio</li>
+            <li><i class="fas fa-sliders-h" style="color: #9775fa;"></i> 1 Mesa 4 canais</li>
+            <li><i class="fas fa-volume-up" style="color: #4dabf7;"></i> 2 Caixas de som</li>
+            <li><i class="fas fa-lightbulb" style="color: #ffd43b;"></i> 2 Mini moving head</li>
+          </ul>
+          <ul>
+            <li><i class="fas fa-lightbulb" style="color: #ff6b6b;"></i> 2 Mini canhões rgb</li>
+            <li><i class="fas fa-smog" style="color: #adb5bd;"></i> 1 Mini máquina de fumaça</li>
+            <li><i class="fas fa-tv" style="color: #74b816;"></i> 1 TV 55" com tripé</li>
+            <li><i class="fas fa-flag" style="color: #f03e3e;"></i> 1 Windbanner</li>
+            <li><i class="fas fa-rug" style="color: #cc5de8;"></i> 1 Tapete</li>
+            <li><i class="fas fa-soap" style="color: #4dabf7;"></i> 1 Mini máquina de bolhas</li>
+            <li><i class="fas fa-user-tie" style="color: #fcc419;"></i> 1 Recreadora</li>
+            <li><i class="fas fa-birthday-cake" style="color: #cc5de8;"></i> Balões e lança confetes</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Show Pirotécnico -->
+      <div class="pacote-item">
+        <div class="pacote-item ajuste-topo">
+        <h2>💫 Show Pirotécnicos 💫</h2>
+        <p>R$ 1.500,00 + Premium</p>
+        <br>
+        <p>Fogos indoor "fogos branco"</p>
+        <ul>
+          <li><i class="fas fa-fire" style="color: #ff6b6b;"></i> 8 canhões confetes prata</li>
+          <li><i class="fas fa-fire" style="color: #ff6b6b;"></i> 8 gerbs 15s</li>
+        </ul>
+      </div>
+      </div>
+
+      <!-- Viagens -->
+      <div class="pacote-item">
+        <div class="pacote-item ajuste-topo">
+        <h2><i class="fas fa-plane" style="color: #339af0;"></i> Viagens <i class="fas fa-plane" style="color: #339af0;"></i></h2>
+        <p>R$ 2.000,00 + Premium + fogos indoor</p>
+        <br>
+        <ul>
+          <li><i class="fas fa-image" style="color: #9775fa;"></i> Cenário 2,5 m x 1,3 m</li>
+          <li><i class="fas fa-calendar-check" style="color: #e0e0e0;"></i> Confirmação em até 7 dias</li>
+          <li><i class="fas fa-money-bill-wave" style="color: #40c057;"></i> 50% de adiantamento</li>
+        </ul>
+      </div>
+    </div>
+    </div>
+    <div class="pacotes-indicators" id="pacotes-indicators">
+      <div class="pacote-indicator active"></div>
+      <div class="pacote-indicator"></div>
+      <div class="pacote-indicator"></div>
+      <div class="pacote-indicator"></div>
+    </div>
+  </div>
+</div>
+
+  <script>
+    const palhaco1 = document.querySelector(".palhaco1");
+    const palhacoguitarra = document.querySelector(".palhacoguitarra");
+
+    palhaco1.classList.remove("hidden");
+    palhacoguitarra.classList.add("hidden");
+
+    setInterval(() => {
+    palhaco1.classList.toggle("hidden");
+    palhacoguitarra.classList.toggle("hidden"); }, 4000);
+
+    // Sobre
+    const sobreBtn = document.getElementById('sobre-btn');
+    const sobreContainer = document.querySelector('.sobre-container');
+    const closeSobre = sobreContainer.querySelector('.close-carrossel');
+
+    sobreBtn.addEventListener('click', () => {
+      sobreContainer.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    });
+
+    closeSobre.addEventListener('click', () => {
+      sobreContainer.style.display = 'none';
+      document.body.style.overflow = '';
+    });
+
+    sobreContainer.addEventListener('click', (e) => {
+      if (e.target === sobreContainer) {
+        sobreContainer.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    });
+
+        // Fotos
+    const fotosBtn = document.getElementById('fotos-btn');
+    const carrossel = document.getElementById('carrossel');
+    const closeCarrossel = carrossel.querySelector('.close-carrossel'); 
+    const carrosselInner = document.getElementById('carrossel-inner');
+    const indicators = document.querySelectorAll('.carrossel-indicator');
+    let currentIndex = 0;
+    const totalItems = document.querySelectorAll('.carrossel-item').length;
+
+    fotosBtn.addEventListener('click', () => { 
+      carrossel.style.display = 'flex'; 
+      document.body.style.overflow = 'hidden'; 
+    });
+
+    closeCarrossel.addEventListener('click', () => { 
+      carrossel.style.display = 'none'; 
+      document.body.style.overflow = ''; 
+    });
+
+    // Fecha o carrossel ao clicar fora do conteúdo (no fundo)
+    carrossel.addEventListener('click', (e) => {
+      if (e.target === carrossel) {
+        carrossel.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    });
+
+    function updateCarrossel() { 
+      carrosselInner.style.transform = `translateX(-${currentIndex * 100}%)`; 
+      indicators.forEach((indicator, index) => { 
+        indicator.classList.toggle('active', index === currentIndex); 
+      }); 
+    }
+
+    indicators.forEach((indicator, index) => { 
+      indicator.addEventListener('click', () => { 
+        currentIndex = index; 
+        updateCarrossel(); 
+      }); 
+    });
+
+    // Vídeos
+    const videosBtn = document.getElementById('videos-btn');
+    const videosCarrossel = document.getElementById('videos-carrossel');
+    const closeVideos = document.getElementById('close-videos');
+    const videosInner = document.getElementById('videos-inner');
+    const videoIndicators = document.querySelectorAll('.video-indicator');
+    let currentVideoIndex = 0;
+    const totalVideos = document.querySelectorAll('.video-item').length;
+
+    videosBtn.addEventListener('click', () => {
+      videosCarrossel.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    });
+
+    closeVideos.addEventListener('click', () => {
+      videosCarrossel.style.display = 'none';
+      document.body.style.overflow = '';
+    });
+
+    // Fecha o carrossel de vídeos ao clicar fora do conteúdo (no fundo)
+    videosCarrossel.addEventListener('click', (e) => {
+      if (e.target === videosCarrossel) {
+        videosCarrossel.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    });
+
+    function updateVideos() {
+      videosInner.style.transform = `translateX(-${currentVideoIndex * 100}%)`;
+      videoIndicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === currentVideoIndex);
+      });
+    }
+
+    videoIndicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', () => {
+        currentVideoIndex = index;
+        updateVideos();
+      });
+    });
+
+    // Nossos Pacotes
+    const servicosBtn = document.getElementById('servicos-btn');
+    const pacotesCarrossel = document.getElementById('pacotes-carrossel');
+    const closePacotes = document.getElementById('close-pacotes');
+    const pacotesInner = document.getElementById('pacotes-inner');
+    const pacoteIndicators = document.querySelectorAll('.pacote-indicator');
+    let currentPacoteIndex = 0;
+    const totalPacotes = document.querySelectorAll('.pacote-item').length;
+
+    servicosBtn.addEventListener('click', () => {
+      pacotesCarrossel.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    });
+
+    closePacotes.addEventListener('click', () => {
+      pacotesCarrossel.style.display = 'none';
+      document.body.style.overflow = '';
+    });
+
+    // Fecha o carrossel de pacotes ao clicar no fundo (fora do conteúdo)
+    pacotesCarrossel.addEventListener('click', (e) => {
+      if (e.target === pacotesCarrossel) {
+        pacotesCarrossel.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    });
+
+    function updatePacotes() {
+      pacotesInner.style.transform = `translateX(-${currentPacoteIndex * 100}%)`;
+      pacoteIndicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === currentPacoteIndex);
+      });
+    }
+
+    pacoteIndicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', () => {
+        currentPacoteIndex = index;
+        updatePacotes();
+      });
+    });
+
+      particlesJS("particles-js", { particles: { number: { value: 400, density: { enable: true, value_area: 800 } },
+      color: { value: ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff", "#00ffff"] },
+      shape: { type: "circle", stroke: { width: 0, color: "#000000" },
+      polygon: { nb_sides: 5 }, image: { src: "img/github.svg", width: 100, height: 100 } },
+      opacity: { value: 0.5, random: true, anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false } },
+      size: { value: 10, random: true, anim: { enable: false, speed: 40, size_min: 0.1, sync: false } },
+      line_linked: { enable: false, distance: 500, color: "#ffffff", opacity: 0.4, width: 2 },
+      move: { enable: true, speed: 0.5, direction: "bottom", random: false, straight: false, out_mode: "out", bounce: false, 
+      attract: { enable: false, rotateX: 600, rotateY: 1200 } } }, interactivity: { detect_on: "canvas",
+      events: { onhover: { enable: true, mode: "bubble" }, onclick: { enable: true, mode: "repulse" }, resize: true },
+      modes: { grab: { distance: 400, line_linked: { opacity: 0.5 } }, bubble: { distance: 400, size: 4, duration: 0.3, opacity: 1, speed: 3 }, 
+      repulse: { distance: 200, duration: 0.4 }, push: { particles_nb: 4 }, remove: { particles_nb: 2 } } }, retina_detect: true });
+
+    // Stats.js integration
+      var count_particles, stats, update;
+      stats = new Stats();
+      stats.setMode(0);
+      stats.domElement.style.position = 'absolute';
+      stats.domElement.style.left = '0px';
+      stats.domElement.style.top = '0px';
+      document.body.appendChild(stats.domElement);
+
+      count_particles = document.querySelector('.js-count-particles');
+
+      update = function () { stats.begin(); stats.end(); if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array)
+      { count_particles.innerText = window.pJSDom[0].pJS.particles.array.length; } requestAnimationFrame(update); };
+
+    // Navegação por teclado
+    document.addEventListener('keydown', (e) => {
+      if (carrossel.style.display === 'flex') {
+        if (e.key === 'ArrowLeft') { currentIndex = (currentIndex - 1 + totalItems) % totalItems; updateCarrossel(); }
+        else if (e.key === 'ArrowRight') { currentIndex = (currentIndex + 1) % totalItems; updateCarrossel(); }
+        else if (e.key === 'Escape') { carrossel.style.display = 'none'; document.body.style.overflow = ''; } }
+      else if (videosCarrossel.style.display === 'flex') {
+        if (e.key === 'ArrowLeft') { currentVideoIndex = (currentVideoIndex - 1 + totalVideos) % totalVideos; updateVideos(); }
+        else if (e.key === 'ArrowRight') { currentVideoIndex = (currentVideoIndex + 1) % totalVideos; updateVideos(); }
+        else if (e.key === 'Escape') { videosCarrossel.style.display = 'none'; document.body.style.overflow = ''; } }
+      else if (pacotesCarrossel.style.display === 'flex') {
+        if (e.key === 'ArrowLeft') { currentPacoteIndex = (currentPacoteIndex - 1 + totalPacotes) % totalPacotes; updatePacotes(); }
+        else if (e.key === 'ArrowRight') { currentPacoteIndex = (currentPacoteIndex + 1) % totalPacotes; updatePacotes(); }
+        else if (e.key === 'Escape') { pacotesCarrossel.style.display = 'none'; document.body.style.overflow = ''; } }
+    });
+  </script>
+</body>
+</html>
