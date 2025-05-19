@@ -13,12 +13,12 @@
     ::-webkit-scrollbar-thumb { background-color: #ffcc00; border-radius: 5px; }
     ::-webkit-scrollbar-thumb:hover { background-color: #ffd633; }
     /* Estilização para Firefox */
-    html { scrollbar-width: thin; scrollbar-color: #ffcc00 rgba(0, 0, 0, 0.3); }
+    html { scrollbar-width: thin; scrollbar-color: #ffcc0000 rgba(0, 0, 0, 0.3); }
 
     #particles-js { position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -1; background-color: transparent; pointer-events: none; }
 
     /* .pacote-item */
-    .pacote-item { scrollbar-width: thin; scrollbar-color: #ffcc00 #00000050; }
+    .pacote-item { scrollbar-width: thin; scrollbar-color: #ffcc0000 #00000050; }
     .pacote-item::-webkit-scrollbar { width: 6px; }
     .pacote-item::-webkit-scrollbar-track { background: #00000050; }
     .pacote-item::-webkit-scrollbar-thumb { background-color: #ffcc00; border-radius: 3px; }
@@ -51,7 +51,7 @@
     .arcoiris{--rot:-30deg;animation-duration:6.5s;width:20%;top:5%;left:1%}
     .estrela{--rot:25deg;animation-duration:5.5s;width:13%;top:50%;left:31%}
     .sol{--rot:20deg;animation-duration:6s;width:30%;top:40%;right:70%}
-    .nuvem{--rot:20deg;animation-duration:4.5s;width:20%;bottom:52%;left:40%}
+    .nuvem{--rot:20deg;animation-duration:5.5s;width:20%;bottom:52%;left:40%}
     .titio{--rot:0deg;animation-duration:6s;width:25%;bottom:35%;left:45%}
     .palhaco{--rot:0deg;animation-duration:5s;width:15%;bottom:30%;left:50%}
     .slogo1{--rot:0deg;animation-duration:4.5s;width:20%;bottom:25%;left:45%}
@@ -70,23 +70,27 @@
     .social-icon:hover { --scale: 1.2; }
 
     /* WhatsApp */
-    .whatsapp-icon { position: fixed; bottom: 1px; right: 10px; width: 100px; height: 100px; z-index: 10; transition: all 0.3s ease; 
+    .whatsapp-icon { position: fixed; bottom: 20px; right: 20px; width: 100px; height: 100px; z-index: 10; transition: all 0.3s ease; 
       animation: flutuar 5.5s ease-in-out infinite; --rot: 0deg; --scale: 1; }
     .whatsapp-icon:hover { --scale: 1.3; }
 
     /* Sobre */
-    .sobre-container{position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,0);display:none;justify-content:center;align-items:center;z-index:999;backdrop-filter:blur(8px)}
+    .sobre-container{position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,0);display:none;justify-content:center;align-items:center;z-index:999;
+      backdrop-filter:blur(8px)}
     .sobre-carrossel{position:relative;width:80%;max-width:800px;height:70%;overflow:hidden}
     .sobre-inner{display:flex;width:100%;height:100%}
-    .sobre-item{min-width:100%;height:100%;display:flex;flex-direction:column;background:#000000d7;border-radius:10px;color:#ffcc00;padding:30px;overflow-y:auto;box-sizing:border-box;justify-content:center}
+    .sobre-item{min-width:100%;height:100%;display:flex;flex-direction:column;background:#000000d7;border-radius:10px;color:#ffcc00;padding:30px;overflow-y:auto;
+      box-sizing:border-box;justify-content:center}
     .sobre-item h2{font-family:'Lilita One',cursive;font-size:1.8rem;margin-bottom:15px;text-align:center}
     .sobre-item p{font-size:1.2rem;margin-bottom:15px;text-align:center}
     
     /* Fotos */
-    .carrossel-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0); display: none; justify-content: center; align-items: center; z-index: 20; backdrop-filter: blur(8px); }
+    .carrossel-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0); display: none; justify-content: center; 
+      align-items: center; z-index: 20; backdrop-filter: blur(8px); }
     .carrossel { position: relative; width: 95%; max-width: none; height: 90vh; overflow: hidden; }
     .carrossel-inner { display: flex; width: 100%; height: 90%; transition: transform 0.5s ease; }
-    .carrossel-item { min-width: 95%; height: 100%; display: flex; justify-content: center; align-items: center; background: #00000000; border-radius: 10px; color: #efd151; padding: 10px; box-sizing: border-box; margin: 0 2.5%; overflow-y: auto; }
+    .carrossel-item { min-width: 95%; height: 100%; display: flex; justify-content: center; align-items: center; background: #00000000; border-radius: 10px; color: #efd151;
+       padding: 10px; box-sizing: border-box; margin: 0 2.5%; overflow-y: auto; }
     .carrossel-item img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;}
     .carrossel-indicators { position: absolute; bottom: 10px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; padding: 10px 0; }
     .carrossel-indicator { width: 12px; height: 12px; border-radius: 50%; background-color: rgba(0, 0, 0, 0.3); cursor: pointer; transition: background 0.3s; }
@@ -94,20 +98,24 @@
     .close-carrossel { position: absolute; top: 20px; right: 20px; color: #ffcc00; font-size: 30px; cursor: pointer; background: none; border: none; text-shadow: 0 0 5px #000; }
 
     /* Vídeos */
-    .videos-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0); display: none; justify-content: center; align-items: center; z-index: 20; backdrop-filter: blur(8px); }
+    .videos-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0); display: none; justify-content: center; 
+      align-items: center; z-index: 20; backdrop-filter: blur(8px); }
     .videos-carrossel { position: relative; width: 80%; max-width: 800px; height: 70%; overflow: hidden; }
     .videos-inner { display: flex; width: 100%; height: 90%; transition: transform 0.5s ease; }
-    .video-item { min-width: 90%; height: 100%; display: flex; justify-content: center; align-items: center; background: #000000d7; border-radius: 10px; box-sizing: border-box; margin: 0 5%; overflow: hidden; }
+    .video-item { min-width: 90%; height: 100%; display: flex; justify-content: center; align-items: center; background: #000000d7; border-radius: 10px; box-sizing: 
+      border-box; margin: 0 5%; overflow: hidden; }
     .video-item iframe { width: 95%; height: 85%; border: none; border-radius: 10px; }
     .videos-indicators { position: absolute; bottom: 10px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; padding: 10px 0; }
     .video-indicator { width: 12px; height: 12px; border-radius: 50%; background-color: rgba(0, 0, 0, 0.3); cursor: pointer; transition: background 0.3s; }
     .video-indicator.active { background-color: #ffcc00; }
         
     /* Nossos Pacotes */
-    .pacotes-container{position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,0);display:none;justify-content:center;align-items:center;z-index:20;backdrop-filter:blur(8px)}
+    .pacotes-container{position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,0);display:none;justify-content:center;align-items:center;z-index:20;
+      backdrop-filter:blur(8px)}
     .pacotes-carrossel{position:relative;width:80%;max-width:800px;height:70%;overflow:hidden}
     .pacotes-inner{display:flex;width:100%;height:90%;transition:transform 0.5s ease}
-    .pacote-item { min-width: 90%; height: 100%; display: flex; flex-direction: column; background: #000000d7; border-radius: 10px; color: #ffcc00; padding: 20px; overflow-y: auto; box-sizing: border-box; margin: 0 5%; }
+    .pacote-item { min-width: 90%; height: 100%; display: flex; flex-direction: column; background: #000000d7; border-radius: 10px; color: #ffcc00; padding: 20px; 
+      overflow-y: auto; box-sizing: border-box; margin: 0 5%; }
     .pacote-item h2{font-family:'Lilita One',cursive;font-size:1.8rem;margin-bottom:15px;text-align:center}
     .pacote-item p{font-size:1.2rem;margin-bottom:15px;text-align:center}
     .pacote-premium-text{font-size:0.9em!important;margin:10px 0!important;text-align:center!important}
@@ -121,25 +129,72 @@
     .ajuste-topo { margin-top: 40px; background: transparent !important; }
 
     /* celulares e tablets */
-     @media (min-width: 320px) and (max-width: 900px) {
-    .lua { width: 27%; top: 33%; left: 38%; position: absolute; }
-    .arcoiris { width: 25%; top: 30%; left: 3%; position: absolute; }
-    .estrela { width: 23%; top: 47%; left: 60%; position: absolute; }
-    .sol { width: 45%; top: 42%; right: 53%; position: absolute; }
-    .nuvem { width: 30%; bottom: 50%; left: 68%; position: absolute; }
-    .titio { width: 70%; bottom: 78%; left: 15%; position: absolute; }
-    .palhaco { width: 40%; bottom: 73%; left: 30%; position: absolute; }
-    .palhaco1 { width: 60%; top: 60%; right: 18%; position: absolute; }
-    .palhacoguitarra { width: 90%; top: 60%; left: 13%; position: absolute; }
-    .slogo1 { width: 60%; top: 25%; left: 20%; position: absolute; }
-    .carrossel, .videos-carrossel, .pacotes-carrossel { width: 98%; height: 50vh; } nav { gap: 10px; } nav a { font-size: 1rem; }
-    .pacote-item h2 { font-size: 1rem; }
-    .pacote-item p { font-size: 0.9rem; }
-    .pacote-item li { font-size: 0.9rem; }
-    .social-icons { position: fixed; bottom: 5px; left: 10px; display: flex; flex-direction: column; gap: 8px; z-index: 100; }
+    @media (min-width: 320px) and (max-width: 900px) {
+    .carrossel-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0); display: none; 
+      justify-content: center; align-items: center; z-index: 999; backdrop-filter: blur(8px); }
+    .two-columns { flex-direction: column; align-items: center; text-align: center; }
+    .two-columns ul { width: 100%; padding: 0; margin: 0 auto; }
+    .two-columns li { margin-bottom: 8px; }
+    .sobre-item h2 { font-size: 1.2rem; }
+    .sobre-item p { font-size: 0.9rem; }
+    .pacote-item { padding: 10px; }
+    .pacote-item h2 { font-size: 1.4rem; }
+    .pacote-item p { font-size: 1rem; }
+    .pacote-item li { font-size: 0.8rem; }
+    .pacotes-indicators { bottom: 1px; padding-bottom: 10px; }
+    .lua { width: 45%; top: 38%; left: 35%; position: absolute; }
+    .arcoiris { width: 45%; top: 27%; left: 0%; position: absolute; }
+    .estrela { width: 35%; top: 50%; left: 62%; position: absolute; }
+    .sol { width: 65%; top: 45%; right: 45%; position: absolute; }
+    .nuvem { width: 45%; bottom: 45%; left: 65%; position: absolute; }
+    .titio { width: 90%; bottom: 75%; left: 5%; position: absolute; }
+    .palhaco { width: 60%; bottom: 70%; left: 20%; position: absolute; }
+    .palhaco1 { width: 60%; top: 65%; right: 17%; position: absolute; }
+    .palhacoguitarra { width: 90%; top: 65%; left: 20%; position: absolute; }
+    .slogo1 { width: 90%; top: 27%; left: 5%; position: absolute; }
+    .carrossel, .pacotes-carrossel { width: 100%; height: 53vh; } nav { gap: 10px; } nav a { font-size: 1rem; }
+    .social-icons { position: fixed; bottom: 5px; left: 10px; display: flex; flex-direction: column; gap: 8px; z-index: 10; }
+    .social-icon { width: 25px; height: 25px; cursor: pointer; transition: all 0.3s ease; animation: flutuar 8s ease-in-out infinite; --rot: 0deg; --scale: 1; }
+    .social-icon:hover { --scale: 1.2; }
+    .whatsapp-icon { position: fixed; bottom: 3px; right: 5px; width: 60px; height: 59px; z-index: 11; transition: all 0.3s ease; animation: flutuar 5.5s ease-in-out infinite;
+       --rot: 0deg; --scale: 1; }
+    .whatsapp-icon:hover { --scale: 1.3; }
+    .videos-container { top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0); display: none; justify-content: center; align-items: center; 
+      z-index: 999; backdrop-filter: blur(8px); }
+    .videos-carrossel { width: 100%; height: 40vh; } 
+    .video-item iframe { width: 95% !important; height: 75% !important; border: none; border-radius: 10px; display: block; margin: 0 auto; }
+    .videos-indicators { position: absolute; bottom: 1vh; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; padding-bottom: 1px; }
+    .video-indicator { width: 10px; height: 10px; } }
+
+    /* celulares e tablets em modo paisagem */
+    @media (min-width: 320px) and (max-width: 900px) and (orientation: landscape) {
+    .lua { width: 35%; top: 45%; left: 40%; position: absolute; }
+    .arcoiris { width: 35%; top: 15%; left: 1%; position: absolute; }
+    .estrela { width: 25%; top: 60%; left: 62%; position: absolute; }
+    .sol { width: 45%; top: 45%; right: 48%; position: absolute; }
+    .nuvem { width: 35%; bottom: 15%; left: 65%; position: absolute; }
+    .titio { width: 50%; bottom: 55%; left: 25%; position: absolute; }
+    .palhaco { width: 30%; bottom: 45%; left: 35%; position: absolute; }
+    .palhaco1, .palhacoguitarra { display: none !important; }
+    .slogo1 { width: 55%; top: 50%; left: 22%; position: absolute; }
+    .carrossel-container, .videos-container, .pacotes-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0); 
+      backdrop-filter: blur(8px); display: none; justify-content: center; align-items: center; z-index: 999; }
+    .carrossel, .videos-carrossel { width: 98%; height: 90vh; position: relative; }
+    .pacotes-carrossel { width: 80%; height: 90vh; position: relative; }
+    .close-carrossel, .close-videos, .close-pacotes { position: absolute; top: 20px; right: 20px; color: #ffcc00; font-size: 30px; cursor: pointer; background: none;
+       border: none; text-shadow: 0 0 5px #000; z-index: 1002; }
+    .sobre-item { padding: 20px; font-size: 1rem; }
+    .sobre-item h2 { font-size: 1rem; }
+    .sobre-item p { font-size: 0.8rem; }
+    .video-item iframe { width: 95% !important; height: 65vh !important; border-radius: 10px; }
+    .pacote-item { padding: 10px; }
+    .pacote-item h2 { font-size: 1.3rem; }
+    .pacote-item p, .pacote-item li { font-size: 0.8rem; } nav { gap: 8px; } nav a { font-size: 1rem; }
+    .social-icons { position: fixed; bottom: 5px; left: 10px; display: flex; flex-direction: column; gap: 8px; z-index: 90; }
     .social-icon { width: 25px; height: 25px; cursor: pointer; }
-    .whatsapp-icon { position: fixed; bottom: 3px; right: 5px; width: 70px; height: 69px; z-index: 101; } }
-  </style>
+    .whatsapp-icon { position: fixed; bottom: 3px; right: 5px; width: 70px; height: 70px; z-index: 91; } }
+    .pacotes-indicators { position: absolute; bottom: 1vh; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; z-index: 1; }
+    </style>
 </head>
 <body>
       <div id="particles-js"></div>  
@@ -336,204 +391,164 @@
   </div>
 </div>
 
-  <script>
-    const palhaco1 = document.querySelector(".palhaco1");
-    const palhacoguitarra = document.querySelector(".palhacoguitarra");
+ <script>
+  // Palhaços (alternância)
+  const palhaco1 = document.querySelector(".palhaco1");
+  const palhacoguitarra = document.querySelector(".palhacoguitarra");
 
-    palhaco1.classList.remove("hidden");
-    palhacoguitarra.classList.add("hidden");
+  palhaco1.classList.remove("hidden");
+  palhacoguitarra.classList.add("hidden");
 
-    setInterval(() => {
+  setInterval(() => {
     palhaco1.classList.toggle("hidden");
-    palhacoguitarra.classList.toggle("hidden"); }, 4000);
+    palhacoguitarra.classList.toggle("hidden");
+  }, 4000);
 
-    // Sobre
-    const sobreBtn = document.getElementById('sobre-btn');
-    const sobreContainer = document.querySelector('.sobre-container');
-    const closeSobre = sobreContainer.querySelector('.close-carrossel');
+  // Utilitários
+  function openModal(modal) {
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
 
-    sobreBtn.addEventListener('click', () => {
-      sobreContainer.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
+  function closeModal(modal) {
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  function handleOutsideClick(modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal(modal);
     });
+  }
 
-    closeSobre.addEventListener('click', () => {
-      sobreContainer.style.display = 'none';
-      document.body.style.overflow = '';
-    });
+  function setupModalTrigger(buttonId, modal, closeBtn) {
+    document.getElementById(buttonId).addEventListener('click', () => openModal(modal));
+    closeBtn.addEventListener('click', () => closeModal(modal));
+    handleOutsideClick(modal);
+  }
 
-    sobreContainer.addEventListener('click', (e) => {
-      if (e.target === sobreContainer) {
-        sobreContainer.style.display = 'none';
-        document.body.style.overflow = '';
-      }
-    });
-
-        // Fotos
-    const fotosBtn = document.getElementById('fotos-btn');
-    const carrossel = document.getElementById('carrossel');
-    const closeCarrossel = carrossel.querySelector('.close-carrossel'); 
-    const carrosselInner = document.getElementById('carrossel-inner');
-    const indicators = document.querySelectorAll('.carrossel-indicator');
-    let currentIndex = 0;
-    const totalItems = document.querySelectorAll('.carrossel-item').length;
-
-    fotosBtn.addEventListener('click', () => { 
-      carrossel.style.display = 'flex'; 
-      document.body.style.overflow = 'hidden'; 
-    });
-
-    closeCarrossel.addEventListener('click', () => { 
-      carrossel.style.display = 'none'; 
-      document.body.style.overflow = ''; 
-    });
-
-    // Fecha o carrossel ao clicar fora do conteúdo (no fundo)
-    carrossel.addEventListener('click', (e) => {
-      if (e.target === carrossel) {
-        carrossel.style.display = 'none';
-        document.body.style.overflow = '';
-      }
-    });
-
-    function updateCarrossel() { 
-      carrosselInner.style.transform = `translateX(-${currentIndex * 100}%)`; 
-      indicators.forEach((indicator, index) => { 
-        indicator.classList.toggle('active', index === currentIndex); 
-      }); 
-    }
-
-    indicators.forEach((indicator, index) => { 
-      indicator.addEventListener('click', () => { 
-        currentIndex = index; 
-        updateCarrossel(); 
-      }); 
-    });
-
-    // Vídeos
-    const videosBtn = document.getElementById('videos-btn');
-    const videosCarrossel = document.getElementById('videos-carrossel');
-    const closeVideos = document.getElementById('close-videos');
-    const videosInner = document.getElementById('videos-inner');
-    const videoIndicators = document.querySelectorAll('.video-indicator');
-    let currentVideoIndex = 0;
-    const totalVideos = document.querySelectorAll('.video-item').length;
-
-    videosBtn.addEventListener('click', () => {
-      videosCarrossel.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    });
-
-    closeVideos.addEventListener('click', () => {
-      videosCarrossel.style.display = 'none';
-      document.body.style.overflow = '';
-    });
-
-    // Fecha o carrossel de vídeos ao clicar fora do conteúdo (no fundo)
-    videosCarrossel.addEventListener('click', (e) => {
-      if (e.target === videosCarrossel) {
-        videosCarrossel.style.display = 'none';
-        document.body.style.overflow = '';
-      }
-    });
-
-    function updateVideos() {
-      videosInner.style.transform = `translateX(-${currentVideoIndex * 100}%)`;
-      videoIndicators.forEach((indicator, index) => {
-        indicator.classList.toggle('active', index === currentVideoIndex);
-      });
-    }
-
-    videoIndicators.forEach((indicator, index) => {
+  function setupCarousel(indicators, updateFn) {
+    indicators.forEach((indicator, index) => {
       indicator.addEventListener('click', () => {
-        currentVideoIndex = index;
-        updateVideos();
+        updateFn(index);
       });
     });
+  }
 
-    // Nossos Pacotes
-    const servicosBtn = document.getElementById('servicos-btn');
-    const pacotesCarrossel = document.getElementById('pacotes-carrossel');
-    const closePacotes = document.getElementById('close-pacotes');
-    const pacotesInner = document.getElementById('pacotes-inner');
-    const pacoteIndicators = document.querySelectorAll('.pacote-indicator');
-    let currentPacoteIndex = 0;
-    const totalPacotes = document.querySelectorAll('.pacote-item').length;
-
-    servicosBtn.addEventListener('click', () => {
-      pacotesCarrossel.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    });
-
-    closePacotes.addEventListener('click', () => {
-      pacotesCarrossel.style.display = 'none';
-      document.body.style.overflow = '';
-    });
-
-    // Fecha o carrossel de pacotes ao clicar no fundo (fora do conteúdo)
-    pacotesCarrossel.addEventListener('click', (e) => {
-      if (e.target === pacotesCarrossel) {
-        pacotesCarrossel.style.display = 'none';
-        document.body.style.overflow = '';
+  function setupSwipe(element, getIndex, setIndex, max) {
+    let startX = 0;
+    element.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+    element.addEventListener('touchend', e => {
+      const deltaX = e.changedTouches[0].clientX - startX;
+      if (Math.abs(deltaX) > 50) {
+        if (deltaX < 0 && getIndex() < max - 1) setIndex(getIndex() + 1);
+        if (deltaX > 0 && getIndex() > 0) setIndex(getIndex() - 1);
       }
     });
+  }
 
-    function updatePacotes() {
-      pacotesInner.style.transform = `translateX(-${currentPacoteIndex * 100}%)`;
-      pacoteIndicators.forEach((indicator, index) => {
-        indicator.classList.toggle('active', index === currentPacoteIndex);
-      });
-    }
+  // Sobre
+  setupModalTrigger('sobre-btn', document.querySelector('.sobre-container'), document.querySelector('.sobre-container .close-carrossel'));
 
-    pacoteIndicators.forEach((indicator, index) => {
-      indicator.addEventListener('click', () => {
-        currentPacoteIndex = index;
-        updatePacotes();
-      });
-    });
+  // Fotos
+  const carrossel = document.getElementById('carrossel');
+  const carrosselInner = document.getElementById('carrossel-inner');
+  const fotoIndicators = document.querySelectorAll('.carrossel-indicator');
+  const totalFotos = document.querySelectorAll('.carrossel-item').length;
+  let fotoIndex = 0;
 
-      particlesJS("particles-js", { particles: { number: { value: 400, density: { enable: true, value_area: 800 } },
+  function updateFotos(index = fotoIndex) {
+    fotoIndex = index;
+    carrosselInner.style.transform = `translateX(-${fotoIndex * 100}%)`;
+    fotoIndicators.forEach((el, i) => el.classList.toggle('active', i === fotoIndex));
+  }
+
+  setupModalTrigger('fotos-btn', carrossel, carrossel.querySelector('.close-carrossel'));
+  setupCarousel(fotoIndicators, updateFotos);
+  setupSwipe(carrosselInner, () => fotoIndex, index => updateFotos(index), totalFotos);
+
+  // Vídeos
+  const videosCarrossel = document.getElementById('videos-carrossel');
+  const videosInner = document.getElementById('videos-inner');
+  const videoIndicators = document.querySelectorAll('.video-indicator');
+  const totalVideos = document.querySelectorAll('.video-item').length;
+  let videoIndex = 0;
+
+  function updateVideos(index = videoIndex) {
+    videoIndex = index;
+    videosInner.style.transform = `translateX(-${videoIndex * 100}%)`;
+    videoIndicators.forEach((el, i) => el.classList.toggle('active', i === videoIndex));
+  }
+
+  setupModalTrigger('videos-btn', videosCarrossel, document.getElementById('close-videos'));
+  setupCarousel(videoIndicators, updateVideos);
+  setupSwipe(videosInner, () => videoIndex, index => updateVideos(index), totalVideos);
+
+  // Pacotes
+  const pacotesCarrossel = document.getElementById('pacotes-carrossel');
+  const pacotesInner = document.getElementById('pacotes-inner');
+  const pacoteIndicators = document.querySelectorAll('.pacote-indicator');
+  let pacoteIndex = 0;
+
+  function updatePacotes(index = pacoteIndex) {
+    pacoteIndex = index;
+    pacotesInner.style.transform = `translateX(-${pacoteIndex * 100}%)`;
+    pacoteIndicators.forEach((el, i) => el.classList.toggle('active', i === pacoteIndex));
+  }
+
+  setupModalTrigger('servicos-btn', pacotesCarrossel, document.getElementById('close-pacotes'));
+  setupCarousel(pacoteIndicators, updatePacotes);
+  setupSwipe(pacotesInner, () => pacoteIndex, index => updatePacotes(index), pacoteIndicators.length);
+
+  // Partículas
+  particlesJS("particles-js", {
+    particles: {
+      number: { value: 400, density: { enable: true, value_area: 800 } },
       color: { value: ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff", "#00ffff"] },
-      shape: { type: "circle", stroke: { width: 0, color: "#000000" },
-      polygon: { nb_sides: 5 }, image: { src: "img/github.svg", width: 100, height: 100 } },
-      opacity: { value: 0.5, random: true, anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false } },
-      size: { value: 10, random: true, anim: { enable: false, speed: 40, size_min: 0.1, sync: false } },
-      line_linked: { enable: false, distance: 500, color: "#ffffff", opacity: 0.4, width: 2 },
-      move: { enable: true, speed: 0.5, direction: "bottom", random: false, straight: false, out_mode: "out", bounce: false, 
-      attract: { enable: false, rotateX: 600, rotateY: 1200 } } }, interactivity: { detect_on: "canvas",
-      events: { onhover: { enable: true, mode: "bubble" }, onclick: { enable: true, mode: "repulse" }, resize: true },
-      modes: { grab: { distance: 400, line_linked: { opacity: 0.5 } }, bubble: { distance: 400, size: 4, duration: 0.3, opacity: 1, speed: 3 }, 
-      repulse: { distance: 200, duration: 0.4 }, push: { particles_nb: 4 }, remove: { particles_nb: 2 } } }, retina_detect: true });
+      shape: {
+        type: "circle",
+        stroke: { width: 0, color: "#000000" },
+        polygon: { nb_sides: 5 },
+        image: { src: "img/github.svg", width: 100, height: 100 }
+      },
+      opacity: { value: 0.5, random: true },
+      size: { value: 10, random: true },
+      line_linked: { enable: false },
+      move: {
+        enable: true,
+        speed: 0.5,
+        direction: "bottom",
+        out_mode: "out"
+      }
+    },
+    interactivity: {
+      detect_on: "canvas",
+      events: {
+        onhover: { enable: true, mode: "bubble" },
+        onclick: { enable: true, mode: "repulse" },
+        resize: true
+      },
+      modes: {
+        bubble: { distance: 400, size: 4, duration: 0.3, opacity: 1, speed: 3 },
+        repulse: { distance: 200, duration: 0.4 },
+        push: { particles_nb: 4 },
+        remove: { particles_nb: 2 }
+      }
+    },
+    retina_detect: true
+  });
 
-    // Stats.js integration
-      var count_particles, stats, update;
-      stats = new Stats();
-      stats.setMode(0);
-      stats.domElement.style.position = 'absolute';
-      stats.domElement.style.left = '0px';
-      stats.domElement.style.top = '0px';
-      document.body.appendChild(stats.domElement);
+  // Stats.js (suporte à performance, opcional - incompleto no original)
+  var stats = new Stats();
+  stats.showPanel(0);
+  document.body.appendChild(stats.dom);
+  function animate() {
+    stats.begin();
+    stats.end();
+    requestAnimationFrame(animate);
+  }
+  requestAnimationFrame(animate);
+</script>
 
-      count_particles = document.querySelector('.js-count-particles');
-
-      update = function () { stats.begin(); stats.end(); if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array)
-      { count_particles.innerText = window.pJSDom[0].pJS.particles.array.length; } requestAnimationFrame(update); };
-
-    // Navegação por teclado
-    document.addEventListener('keydown', (e) => {
-      if (carrossel.style.display === 'flex') {
-        if (e.key === 'ArrowLeft') { currentIndex = (currentIndex - 1 + totalItems) % totalItems; updateCarrossel(); }
-        else if (e.key === 'ArrowRight') { currentIndex = (currentIndex + 1) % totalItems; updateCarrossel(); }
-        else if (e.key === 'Escape') { carrossel.style.display = 'none'; document.body.style.overflow = ''; } }
-      else if (videosCarrossel.style.display === 'flex') {
-        if (e.key === 'ArrowLeft') { currentVideoIndex = (currentVideoIndex - 1 + totalVideos) % totalVideos; updateVideos(); }
-        else if (e.key === 'ArrowRight') { currentVideoIndex = (currentVideoIndex + 1) % totalVideos; updateVideos(); }
-        else if (e.key === 'Escape') { videosCarrossel.style.display = 'none'; document.body.style.overflow = ''; } }
-      else if (pacotesCarrossel.style.display === 'flex') {
-        if (e.key === 'ArrowLeft') { currentPacoteIndex = (currentPacoteIndex - 1 + totalPacotes) % totalPacotes; updatePacotes(); }
-        else if (e.key === 'ArrowRight') { currentPacoteIndex = (currentPacoteIndex + 1) % totalPacotes; updatePacotes(); }
-        else if (e.key === 'Escape') { pacotesCarrossel.style.display = 'none'; document.body.style.overflow = ''; } }
-    });
-  </script>
 </body>
 </html>
